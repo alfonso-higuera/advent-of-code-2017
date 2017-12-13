@@ -1,8 +1,7 @@
 (ns advent-of-code-2017.day12-test
   (:require [advent-of-code-2017.day12 :as day12]
-            [clojure.java.io :as io]
-            [clojure.test :refer :all])
-  (:import [java.io BufferedReader StringReader]))
+            [advent-of-code-2017.test-util :refer [load-lines]]
+            [clojure.test :refer :all]))
 
 
 (deftest day12-test
@@ -18,7 +17,6 @@
       (is (= 2 (count (day12/groups example))))))
 
   (testing "input"
-    (let [nodes (with-open [rdr (-> "day/12/input" io/resource io/reader)]
-                  (day12/node->neighbors (line-seq rdr)))]
+    (let [nodes (day12/node->neighbors (load-lines 12))]
       (is (= 128 (count (day12/group nodes "0"))))
       (is (= 209 (count (day12/groups nodes)))))))
