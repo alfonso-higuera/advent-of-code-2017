@@ -57,7 +57,7 @@
   (iterate #(dance % moves) dancers))
 
 
-(defn dance-sequence [dancers moves]
+(defn dance-cycle [dancers moves]
   (let [dances (dance! dancers moves)]
     (loop [seen []
            dances dances]

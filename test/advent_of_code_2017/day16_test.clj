@@ -1,6 +1,6 @@
 (ns advent-of-code-2017.day16-test
   (:require [advent-of-code-2017.day16 :as day16]
-            [advent-of-code-2017.test-util :refer [resource]]
+            [advent-of-code-2017.test-util :refer [slurp&split]]
             [clojure.test :refer :all]))
 
 
@@ -13,7 +13,7 @@
 
   (testing "input"
     (let [dancers (day16/dancers 16)
-          moves (-> (resource 16) slurp (clojure.string/split #","))]
+          moves (slurp&split 16 #",")]
       (is (= "lgpkniodmjacfbeh" (apply str (day16/dance dancers moves))))
-      (let [sequence (day16/dance-sequence dancers moves)]
-        (is (= "hklecbpnjigoafmd" (nth sequence (mod 1e9 (count sequence)))))))))
+      (let [dc (day16/dance-cycle dancers moves)]
+        (is (= "hklecbpnjigoafmd" (nth dc (mod 1e9 (count dc)))))))))
