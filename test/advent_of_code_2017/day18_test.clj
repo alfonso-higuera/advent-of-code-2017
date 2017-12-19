@@ -32,8 +32,8 @@
                         "rcv b"
                         "rcv c"
                         "rcv d"]]
-      (is (= [1 2 1] (day18/evaluate-duet instructions 10 100)))))
+      (is (= [1 2 1] (day18/evaluate-duet instructions 3)))))
 
   (testing "input"
     (let [instructions (into [] (load-lines 18))]
-      (is (= 8001 (count (day18/evaluate-duet instructions 100 250)))))))
+      (is (= 8001 (count (day18/evaluate-duet instructions 42)))))))
