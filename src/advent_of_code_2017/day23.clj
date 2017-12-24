@@ -98,6 +98,3 @@
 
 (defn prime? [n]
   (not (boolean (some #(zero? (mod n %)) (range 2 (math/sqrt n))))))
-
-
-(count (remove prime? (take 1001 (iterate #(+ % 17) 108100))))
